@@ -1,10 +1,12 @@
-const utils = require('../utils');
 let WeatherDBClient = {};
+
+const WeatherDataTable = 'weatherdata';
+
 
 WeatherDBClient.getWeatherByCity = function(city){
     let self = this;
     return new Promise(function (resolve, reject) {
-        self.connection.get(`select * from owlcity`, {}, (err, row) => {
+        self.connection.get(`select * from ${WeatherDataTable} where city = '${city}'`, {}, (err, row) => {
             console.log(row);
             if (err){
                 reject(err);
@@ -19,7 +21,7 @@ WeatherDBClient.getWeatherByCity = function(city){
 WeatherDBClient.saveWeatherData = function (weatherData) {
     let self = this;
     return new Promise(function (resolve, reject) {
-        self.connection.run(`delete from owlcity where city = ?`, [weatherData.city], (err, row) => {
+        self.connection.run(`delete from ${WeatherDataTable} where city = ?`, [weatherData.city], (err, row) => {
             if (err){
                 reject(err);
             }
@@ -30,7 +32,7 @@ WeatherDBClient.saveWeatherData = function (weatherData) {
     }).then(() => {
         return new Promise(function (resolve, reject) {
             self.connection.run(
-                `insert into owlcity (city, temp, weather, updated_at) values (?, ?, ?, ?)`,
+                `insert into ${WeatherDataTable} (city, temp, weather, updated_at) values (?, ?, ?, ?)`,
                 [weatherData.city, weatherData.temp, weatherData.weather, weatherData.updated_at],
                 (err, row) => {
                     if (err){

@@ -14,6 +14,7 @@ const weatherRepository = WeatherRepositoryFactory(weatherDBClient, weatherServi
 const weatherController = WeatherControllerFactory(weatherRepository);
 
 router.get("/getweather", (req, res) => weatherController.getWeather(req, res));
+router.get("/isWeatherBad", (req, res) => weatherController.isWeatherBad(req, res));
 
 function getWeatherDBClient(){
     return WeatherDBClientFactory(Main.DBConnection);
