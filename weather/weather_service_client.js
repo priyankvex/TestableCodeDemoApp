@@ -13,7 +13,7 @@ WeatherServiceClient.getWeatherByCity = function(city){
         qs: {
             q: city,
             appid: this.API_KEY,
-            units: 'metrics'
+            units: 'metric'
         },
         json: true
     };

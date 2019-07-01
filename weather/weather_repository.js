@@ -13,12 +13,7 @@ WeatherRepository.getWeatherByCity = function(city){
             if (!weatherData){
                 fetchUsingAPI = true;
             }else{
-                let currentTime = new Date();
-                let lastUpdatedAt = utils.ISOStringToDate(weatherData.updated_at);
-                let tenMinutes = 1000 * 60 * 10;
-                if (currentTime - lastUpdatedAt > tenMinutes){
-                    fetchUsingAPI = true;
-                }
+                fetchUsingAPI = isWeatherDataStale(weatherData);
             }
 
             if(fetchUsingAPI){
@@ -39,6 +34,18 @@ WeatherRepository._refreshWeatherData = function(city){
             return self.weatherDBClient.saveWeatherData(weatherData)
         })
 };
+
+
+function isWeatherDataStale(weatherData){
+    let isStale = false;
+    let currentTime = new Date();
+    let lastUpdatedAt = utils.ISOStringToDate(weatherData.updated_at);
+    let tenMinutes = 1000 * 60 * 10;
+    if (currentTime - lastUpdatedAt > tenMinutes){
+        isStale = true;
+    }
+    return isStale
+}
 
 
 module.exports = function(weatherDBClient, weatherServiceClient){
