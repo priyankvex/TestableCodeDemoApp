@@ -3,7 +3,7 @@ var RequestPromise = require('request-promise-native');
 
 var WeatherServiceClient = {};
 
-const API_KEY = null;
+const API_KEY = "e7cd658b0117bceb94b8c799b172cd97";
 const URL = 'http://api.openweathermap.org/data/2.5/weather';
 
 WeatherServiceClient.getWeatherByCity = function(city){

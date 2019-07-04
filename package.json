@@ -1,0 +1,22 @@
+{
+  "name": "jstestingframeworkevaluation",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/priyankvex/TestableCodeDemoApp.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/priyankvex/TestableCodeDemoApp/issues"
+  },
+  "homepage": "https://github.com/priyankvex/TestableCodeDemoApp#readme",
+  "scripts": {
+    "test": "jest"
+  },
+  "devDependencies": {
+    "jest": "^24.8.0"
+  }
+}
