@@ -7,7 +7,7 @@ module.exports = {
     DBConnection: DBConnection
 };
 
-const weatherRoutes = require('./weather/index');
+const weatherRoutes = require('./src/weather/index');
 
 app.use(weatherRoutes);
 app.listen(port, () => console.log(`Example app listening on port ${port}!`));

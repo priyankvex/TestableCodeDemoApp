@@ -1,4 +1,4 @@
-const httpResponse = require('./../responses');
+const httpResponse = require('../responses');
 
 var WeatherController = {};
 

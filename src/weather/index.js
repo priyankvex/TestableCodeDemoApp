@@ -5,7 +5,7 @@ const WeatherControllerFactory = require("./controller");
 const WeatherRepositoryFactory = require("./weather_repository");
 const WeatherServiceClientFactory = require('./weather_service_client');
 const WeatherDBClientFactory = require('./weather_db_client');
-const Main = require('../index');
+const Main = require('../../index');
 
 const weatherDBClient = getWeatherDBClient();
 const weatherServiceClient = getWeatherServiceClient();
