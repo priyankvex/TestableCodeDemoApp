@@ -1,7 +1,7 @@
 const express = require('express');
 const app = express();
 const port = 3000;
-const DBConnection = require('./db');
+const DBConnection = require('./src/db');
 
 module.exports = {
     DBConnection: DBConnection

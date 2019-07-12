@@ -21,7 +21,7 @@ WeatherController.isWeatherBad = function (req, res){
         .then(response => {
             let weather = response.weather.toLowerCase();
             let isWeatherBad = BAD_WEATHERS.has(weather);
-            httpResponse.successResponse(res, {isWeatherBad: isWeatherBad}, 200);
+            return httpResponse.successResponse(res, {isWeatherBad: isWeatherBad}, 200);
         })
         .catch(err => {});
 };
